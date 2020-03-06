@@ -21,7 +21,7 @@ enable_jsdelivr = {
 # 站点设置
 site_name = "张山崩"
 site_logo = "${static_prefix}logo.png"
-site_build_date = "2019-12-18T16:51+08:00"
+site_build_date = "2020-3-16T11:11+08:00"
 author = "张山崩"
 email = "icon_f@qq.com"
 author_homepage = "https://www.zhangshanbeng.com/"
