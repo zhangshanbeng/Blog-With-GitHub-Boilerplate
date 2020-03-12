@@ -76,6 +76,13 @@ head_addon = r'''
 <link rel="dns-prefetch" href="//cdn.jsdelivr.net" />
 '''
 
-footer_addon = '<a href="http://www.beian.miit.gov.cn/">苏ICP备19071006号</a>'
+footer_addon = '
+<style type="text/css">
+<!--
+a {text-decoration:none;}
+a:link,a:visited,a:active {color:#000000;}
+a:hover {color:#1888E0;} //这个是你鼠标指向时的颜色，自己修改颜色值
+-->
+</style><a href="http://www.beian.miit.gov.cn/">苏ICP备19071006号</a>'
 
 body_addon = ''
