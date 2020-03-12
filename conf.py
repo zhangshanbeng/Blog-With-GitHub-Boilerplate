@@ -80,6 +80,6 @@ head_addon = r'''
 <link rel="dns-prefetch" href="//cdn.jsdelivr.net" />
 '''
 
-footer_addon = '</style><a href="http://www.beian.miit.gov.cn/">苏ICP备19071006号</a>'
+footer_addon = '<a href="http://www.beian.miit.gov.cn/">苏ICP备19071006号</a>'
 
 body_addon = ''
