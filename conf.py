@@ -71,7 +71,7 @@ social_links = [
     },
     {
         "name": "苏ICP备19071006号",
-        "url": "http://www.beian.miit.gov.cn/",
+        "url": "http://www.beian.miit.gov.cn/"
     }
 ]
 
