@@ -68,6 +68,10 @@ social_links = [
         "name": "Weibo",
         "url": "https://weibo.com/234277266/",
         "icon": "gi gi-weibo"
+    },
+    {
+        "name": "苏ICP备19071006号",
+        "url": "http://www.beian.miit.gov.cn/",
     }
 ]
 
