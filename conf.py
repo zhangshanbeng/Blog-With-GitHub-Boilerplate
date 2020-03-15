@@ -19,13 +19,13 @@ enable_jsdelivr = {
 }
 
 # 站点设置
-site_name = "张山崩"
+site_name = "张山崩的小窝"
 site_logo = "${static_prefix}logo.png"
-site_build_date = "2020-01-16T11:11+08:00"
+site_build_date = "2020-01-11T11:11+08:00"
 author = "张山崩"
 email = "icon_f@qq.com"
 author_homepage = "https://www.zhangshanbeng.com/"
-description = "万物可爱 未来可期"
+description = "光与影的交织 黑与白的渗透"
 key_words = ['张山崩', 'typecho', 'blog']
 language = 'zh-CN'
 external_links = [
