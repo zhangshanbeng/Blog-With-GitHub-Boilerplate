@@ -1,0 +1,318 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+    <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="renderer" content="webkit">
+    <meta name="HandheldFriendly" content="true">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="keywords" content="张山崩,typecho,blog" />
+    <meta name="generator" content="Maverick 1.1" />
+    <meta name="template" content="Galileo" />
+    <link rel="alternate" type="application/rss+xml" title="张山崩的小窝 &raquo; RSS 2.0" href="/feed/index.xml" />
+    <link rel="alternate" type="application/atom+xml" title="张山崩的小窝 &raquo; ATOM 1.0" href="/feed/atom/index.xml" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/zhangshanbeng/site-Blog@gh-pages/assets/galileo-3f4dcc35c9.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/zhangshanbeng/site-Blog@gh-pages/assets/ExSearch/ExSearch-182e5a8868.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/zhangshanbeng/site-Blog@gh-pages/assets/katex.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Fira+Code&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Droid+Serif:400,700&display=swap">
+    <script>
+        var ExSearchConfig = {
+            root: "",
+            api: "https://cdn.jsdelivr.net/gh/zhangshanbeng/site-Blog@gh-pages/5235304e5cf665634858d38c41dcf2f1.json"
+        }
+    </script>
+    
+<title>定时爬取教务网信息并自动发信 - 张山崩的小窝</title>
+<meta name="author" content="张山崩" />
+<meta name="description" content="利用Python实现定时爬取教务网信息并自动发信" />
+<meta property="og:title" content="定时爬取教务网信息并自动发信 - 张山崩的小窝" />
+<meta property="og:description" content="利用Python实现定时爬取教务网信息并自动发信" />
+<meta property="og:site_name" content="张山崩的小窝" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="/archives/njitjww/" />
+<meta property="og:image" content="" />
+<meta property="article:published_time" content="2020-03-16T20:30:00-00.00" />
+<meta name="twitter:title" content="定时爬取教务网信息并自动发信 - 张山崩的小窝" />
+<meta name="twitter:description" content="利用Python实现定时爬取教务网信息并自动发信" />
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:image" content="" />
+
+
+    
+<meta http-equiv="x-dns-prefetch-control" content="on">
+<link rel="dns-prefetch" href="//cdn.jsdelivr.net" />
+
+    </head>
+    
+    <body>
+        
+        <div class="container">
+            <header id="ga-header">
+                <div first>
+                    <aside id="ga-brand">
+                        <h1 class="brand"><a class="no-style" href="/">张山崩的小窝</a></h1>
+                        <p>光与影的交织 黑与白的渗透</p>
+                    </aside>
+                </div>
+                <div second id="ga-nav">
+                    <nav class="navs">
+                        <ul><li><a class="ga-highlight" href="/" target="_self">首页</a></li><span class="separator">·</span><li><a class="ga-highlight" href="/archives/" target="_self">归档</a></li><span class="separator">·</span><li><a class="ga-highlight" href="/about/" target="_self">关于</a></li><span class="separator">·</span><li><a href="#" target="_self" class="search-form-input ga-highlight">搜索</a></li></ul>
+                    </nav>
+                </div>
+            </header>
+            <div class="wrapper">
+                
+<main>    
+    <section class="ga-section ga-content">
+        <article class="yue">
+            <h1 class="ga-post_title">定时爬取教务网信息并自动发信</h1>
+            <span class="ga-post_meta ga-mono">
+                <span>张山崩</span>
+                <time>
+                    2020-03-16
+                </time>
+                
+                in <a no-style class="category" href="/category/Python/">
+                    Python
+                </a>
+                
+                
+            </span>
+            <div class="ga-content_body">
+                <div class="notice">不想每天都点开教务网，又不想错过重要的信息，于是写了个简单的爬虫来偷懒</div><h2>数据爬取</h2>
+<p>F12之后，发现内容页的url在这个标签里，但由于学校教务网前端做的花里胡哨，这里只能用正则表达式来抓取url
+<figure style="flex: 106.54827968923418" ><img width="3840" height="1802" src="https://cdn.jsdelivr.net/gh/zhangshanbeng/site-Blog@gh-pages/archives/assets/4b06e04626c8490f42eb2e1e1647668b.jpg" /><figcaption>F12_url</figcaption></figure>
+利用requests+beautifulsoup进行url的抓取并返回一个list:</p>
+
+<pre><code>def get_url():
+    url = 'http://jwc.njit.edu.cn/'
+    r = requests.get(url)
+    soup = BeautifulSoup(r.text, 'html.parser')
+    links = soup.find_all(href=re.compile("content.jsp"),target="_blank",limit=13)
+    main_url = 'http://jwc.njit.edu.cn/'
+    url_lists = []
+    for link in links:
+        a = link['href']
+        url_lists.append(main_url+a)
+    return url_lists</code></pre>
+<p>教务网平时也会对网站进行更新维护，limit的值要根据具体情况进行设定，url_lists里的元素也是</p>
+<p>获取了文章的url之后，就是获取文章的标题和发布时间，于是继续F12
+<figure style="flex: 106.72969966629589" ><img width="3838" height="1798" src="https://cdn.jsdelivr.net/gh/zhangshanbeng/site-Blog@gh-pages/archives/assets/0b9eaa353b8dda856abef6c4c9d50b03.jpg" /><figcaption>F12_title_pubdate</figcaption></figure>
+这两个值是很好获取的，但有的网页是需要内网权限的，没有title，注意排除此类干扰</p>
+
+<pre><code>def get_content():
+    title_list = []
+    for url in get_url():
+        r = requests.get(url=url)
+        r.encoding = 'utf-8'
+        soup = BeautifulSoup(r.text, 'html.parser')
+        titles = soup.find('h2', class_="title")
+        if titles is None:
+            continue
+        title = titles.get_text()
+        pub_data_text = soup.find('p',text=re.compile("\\d{4}-\\d{2}-\\d{2}")).text</code></pre>
+<p>其中<code>r.encoding = 'utf-8'</code>是为了防止出现中文乱码的问题</p>
+<h2>邮件发送</h2>
+<p>代码实现：</p>
+
+<pre><code>import smtplib
+from email.mime.text import MIMEText
+from email.header import Header
+
+def sent_email(mail_title,mail_body):
+    sender = '**********'
+    receiver = '*********'
+    smtpServer = 'smtp.126.com'
+    username = '*********'
+    password = '*********'
+    mail_title = mail_title
+    mail_body = mail_body
+
+    message = MIMEText(mail_body, 'plain', 'utf-8')
+    message["Accept-Language"] = "zh-CN"
+    message["Accept-Charset"] = "ISO-8859-1,utf-8"
+    message['From'] = sender
+    message['To'] = receiver
+    message['Subject'] = Header(mail_title, 'utf-8')
+
+    try:
+        smtp = smtplib.SMTP()
+        smtp.connect(smtpServer)
+        smtp.login(username, password)
+        smtp.sendmail(sender, receiver, message.as_string())
+        print('邮件发送成功')
+        smtp.quit()
+    except smtplib.SMTPException:
+        print("邮件发送失败！！！")</code></pre>
+<p>其中，<code>username</code>是你的邮箱账号，<code>password</code>是你的<strong><em>SMTP授权码</em></strong></p>
+<h2>定时执行</h2>
+<p>利用腾讯云云函数，轻松偷懒，具体配置如下：
+[photos]
+<figure style="flex: 106.9042316258352" ><img width="3840" height="1796" src="https://cdn.jsdelivr.net/gh/zhangshanbeng/site-Blog@gh-pages/archives/assets/41c990470521c0c75dd74ccac9e0d624.jpg" /></figure>
+<figure style="flex: 106.9042316258352" ><img width="3840" height="1796" src="https://cdn.jsdelivr.net/gh/zhangshanbeng/site-Blog@gh-pages/archives/assets/c4746644ad18b2554c8e6fe98274ba2d.jpg" /></figure>
+[/photos]
+关于定时触发器的设置，我的思路是：
+学校一般在11：00-2：00这个时间段发通知，2：30的触发器保证了时效性，23：55的是防止遗漏</p>
+<h2>全部代码实现：</h2>
+
+<pre><code>from bs4 import BeautifulSoup
+import requests
+import re
+import time
+import smtplib
+from email.mime.text import MIMEText
+from email.header import Header
+
+def get_url():
+    url = 'http://jwc.njit.edu.cn/'
+    r = requests.get(url)
+    soup = BeautifulSoup(r.text, 'html.parser')
+    links = soup.find_all(href=re.compile("content.jsp"),target="_blank",limit=13)
+    main_url = 'http://jwc.njit.edu.cn/'
+    url_lists = []
+    for link in links:
+        a = link['href']
+        url_lists.append(main_url+a)
+    return url_lists
+
+def get_content():
+    title_list = []
+    for url in get_url():
+        r = requests.get(url=url)
+        r.encoding = 'utf-8'
+        soup = BeautifulSoup(r.text, 'html.parser')
+        titles = soup.find('h2', class_="title")
+        if titles is None:
+            continue
+        title = titles.get_text()
+        pub_data_text = soup.find('p',text=re.compile("\\d{4}-\\d{2}-\\d{2}")).text
+        pub_data=pub_data_text.replace('时间:','')
+        current_time = time.strftime('%Y-%m-%d', time.localtime())
+        if pub_data == current_time:
+            title_list.append(pub_data + " ； 今日通知：" + title + "；" + "详情点击： " + url)
+    if len(title_list) == 0:
+        sent_email(mail_title='今日没有通知',mail_body='今天没有通知')
+    else:
+        for title in title_list:
+            sent_email(mail_title='今日通知',mail_body=title)
+    title_list.clear()
+
+def sent_email(mail_title,mail_body):
+    sender = '**********'
+    receiver = '*********'
+    smtpServer = 'smtp.126.com'
+    username = '*********'
+    password = '*********'
+    mail_title = mail_title
+    mail_body = mail_body
+
+    message = MIMEText(mail_body, 'plain', 'utf-8')
+    message["Accept-Language"] = "zh-CN"
+    message["Accept-Charset"] = "ISO-8859-1,utf-8"
+    message['From'] = sender
+    message['To'] = receiver
+    message['Subject'] = Header(mail_title, 'utf-8')
+
+    try:
+        smtp = smtplib.SMTP()
+        smtp.connect(smtpServer)
+        smtp.login(username, password)
+        smtp.sendmail(sender, receiver, message.as_string())
+        print('邮件发送成功')
+        smtp.quit()
+    except smtplib.SMTPException:
+        print("邮件发送失败！！！")
+
+def main(self1,self2):
+    get_content()</code></pre>
+<p><a href="https://github.com/zhangshanbeng/NJITjww">项目地址</a>←戳我</p>
+
+            </div>
+        </article>
+        <div id="ga-tags">
+    
+    <span class="ga-tag">
+        <a class="ga-highlight" href="/tag/Python/">#Python</a>
+    </span>
+    
+    <span class="ga-tag">
+        <a class="ga-highlight" href="/tag/爬虫/">#爬虫</a>
+    </span>
+    
+    <span class="ga-tag">
+        <a class="ga-highlight" href="/tag/南京工程学院/">#南京工程学院</a>
+    </span>
+    
+</div>
+    </section>
+
+    
+<section id="ga-content_pager">
+
+    <div class="next">
+        <h3>没有了</h3>
+        <p class="yue">这是最新的文章</p>
+    </div>
+
+
+    <div class="prev">
+        <a class="ga-highlight" href="/archives/typography/">Hello World!</a>
+        <p class="yue">这是一篇示例文章，在这里你可以看到常用页面元素的显示效果。</p>
+    </div>
+
+</section>
+
+
+    
+
+</main>
+
+                <footer class="ga-mono" id="ga-footer">
+                    <section>
+                        <span id="ga-uptime"></span>
+                        <span class="brand">张山崩的小窝</span>
+                    </section>
+                    <section>
+                        <p class="copyright">
+                            <span>Copyright © 2020 张山崩</span>
+                            <span>Powered by <a no-style href="https://github.com/AlanDecode/Maverick" target="_blank">Maverick & Galileo</a></span>
+                        </p>
+                        <div class="copyright">
+                            <span class="footer-addon">
+                                <a no-style href="http://www.beian.miit.gov.cn/" target="_blank">苏ICP备19071006号</a>
+                            </span>
+                            <nav class="social-links">
+                                <ul><li><a class="no-style" title="GitHub" href="https://github.com/zhangshanbeng" target="_blank"><i class="gi gi-github"></i>GitHub</a></li><span class="separator">·</span><li><a class="no-style" title="Weibo" href="https://weibo.com/234277266/" target="_blank"><i class="gi gi-weibo"></i>Weibo</a></li></ul>
+                            </nav>
+                        </div>
+                    </section>
+                    <script>
+                        var site_build_date = "2020-01-11T11:11+08:00"
+                    </script>
+                    <script src="https://cdn.jsdelivr.net/gh/zhangshanbeng/site-Blog@gh-pages/assets/galileo-dc4baa7cf4.js"></script>
+                </footer>
+            </div>
+        </div>
+    </div>
+
+    <!--katex-->
+    <script defer src="https://cdn.jsdelivr.net/gh/zhangshanbeng/site-Blog@gh-pages/assets/katex.min.js"></script>
+    <script>
+    mathOpts = {
+        delimiters: [
+            {left: "$$", right: "$$", display: true},
+            {left: "\\[", right: "\\]", display: true},
+            {left: "$", right: "$", display: false},
+            {left: "\\(", right: "\\)", display: false}
+        ]
+    };
+    </script>
+    <script defer src="https://cdn.jsdelivr.net/gh/zhangshanbeng/site-Blog@gh-pages/assets/auto-render.min.js" onload="renderMathInElement(document.body, mathOpts);"></script>
+
+    <script src="https://cdn.jsdelivr.net/gh/zhangshanbeng/site-Blog@gh-pages/assets/ExSearch/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/zhangshanbeng/site-Blog@gh-pages/assets/ExSearch/ExSearch-493cb9cd89.js"></script>
+
+    
+    </body>
+</html>
