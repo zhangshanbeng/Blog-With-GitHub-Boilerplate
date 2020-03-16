@@ -19,7 +19,7 @@
     <script>
         var ExSearchConfig = {
             root: "",
-            api: "https://cdn.jsdelivr.net/gh/zhangshanbeng/site-Blog@gh-pages/cc13ebd43d74995cd46192b98fb2801d.json"
+            api: "https://cdn.jsdelivr.net/gh/zhangshanbeng/site-Blog@gh-pages/55070f6568b6fc4cf47559c657eef2b6.json"
         }
     </script>
     
@@ -84,67 +84,67 @@
 <p>F12之后，发现内容页的url在这个标签里，但由于学校教务网前端做的花里胡哨，这里只能用正则表达式来抓取url
 <figure style="flex: 106.54827968923418" ><img width="3840" height="1802" src="https://cdn.jsdelivr.net/gh/zhangshanbeng/site-Blog@gh-pages/archives/assets/4b06e04626c8490f42eb2e1e1647668b.jpg" /><figcaption>F12_url</figcaption></figure>
 利用requests+beautifulsoup进行url的抓取并返回一个list:</p>
-
-<pre><code>def get_url():
-    url = 'http://jwc.njit.edu.cn/'
-    r = requests.get(url)
-    soup = BeautifulSoup(r.text, 'html.parser')
-    links = soup.find_all(href=re.compile("content.jsp"),target="_blank",limit=13)
-    main_url = 'http://jwc.njit.edu.cn/'
-    url_lists = []
-    for link in links:
-        a = link['href']
-        url_lists.append(main_url+a)
-    return url_lists</code></pre>
+<div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">get_url</span><span class="p">():</span>
+    <span class="n">url</span> <span class="o">=</span> <span class="s1">&#39;http://jwc.njit.edu.cn/&#39;</span>
+    <span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
+    <span class="n">soup</span> <span class="o">=</span> <span class="n">BeautifulSoup</span><span class="p">(</span><span class="n">r</span><span class="o">.</span><span class="n">text</span><span class="p">,</span> <span class="s1">&#39;html.parser&#39;</span><span class="p">)</span>
+    <span class="n">links</span> <span class="o">=</span> <span class="n">soup</span><span class="o">.</span><span class="n">find_all</span><span class="p">(</span><span class="n">href</span><span class="o">=</span><span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="s2">&quot;content.jsp&quot;</span><span class="p">),</span><span class="n">target</span><span class="o">=</span><span class="s2">&quot;_blank&quot;</span><span class="p">,</span><span class="n">limit</span><span class="o">=</span><span class="mi">13</span><span class="p">)</span>
+    <span class="n">main_url</span> <span class="o">=</span> <span class="s1">&#39;http://jwc.njit.edu.cn/&#39;</span>
+    <span class="n">url_lists</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">link</span> <span class="ow">in</span> <span class="n">links</span><span class="p">:</span>
+        <span class="n">a</span> <span class="o">=</span> <span class="n">link</span><span class="p">[</span><span class="s1">&#39;href&#39;</span><span class="p">]</span>
+        <span class="n">url_lists</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">main_url</span><span class="o">+</span><span class="n">a</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">url_lists</span>
+</pre></div>
 <p>教务网平时也会对网站进行更新维护，limit的值要根据具体情况进行设定，url_lists里的元素也是</p>
 <p>获取了文章的url之后，就是获取文章的标题和发布时间，于是继续F12
 <figure style="flex: 106.72969966629589" ><img width="3838" height="1798" src="https://cdn.jsdelivr.net/gh/zhangshanbeng/site-Blog@gh-pages/archives/assets/0b9eaa353b8dda856abef6c4c9d50b03.jpg" /><figcaption>F12_title_pubdate</figcaption></figure>
 这两个值是很好获取的，但有的网页是需要内网权限的，没有title，注意排除此类干扰</p>
-
-<pre><code>def get_content():
-    title_list = []
-    for url in get_url():
-        r = requests.get(url=url)
-        r.encoding = 'utf-8'
-        soup = BeautifulSoup(r.text, 'html.parser')
-        titles = soup.find('h2', class_="title")
-        if titles is None:
-            continue
-        title = titles.get_text()
-        pub_data_text = soup.find('p',text=re.compile("\\d{4}-\\d{2}-\\d{2}")).text</code></pre>
+<div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">get_content</span><span class="p">():</span>
+    <span class="n">title_list</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">url</span> <span class="ow">in</span> <span class="n">get_url</span><span class="p">():</span>
+        <span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span><span class="o">=</span><span class="n">url</span><span class="p">)</span>
+        <span class="n">r</span><span class="o">.</span><span class="n">encoding</span> <span class="o">=</span> <span class="s1">&#39;utf-8&#39;</span>
+        <span class="n">soup</span> <span class="o">=</span> <span class="n">BeautifulSoup</span><span class="p">(</span><span class="n">r</span><span class="o">.</span><span class="n">text</span><span class="p">,</span> <span class="s1">&#39;html.parser&#39;</span><span class="p">)</span>
+        <span class="n">titles</span> <span class="o">=</span> <span class="n">soup</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s1">&#39;h2&#39;</span><span class="p">,</span> <span class="n">class_</span><span class="o">=</span><span class="s2">&quot;title&quot;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">titles</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">continue</span>
+        <span class="n">title</span> <span class="o">=</span> <span class="n">titles</span><span class="o">.</span><span class="n">get_text</span><span class="p">()</span>
+        <span class="n">pub_data_text</span> <span class="o">=</span> <span class="n">soup</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s1">&#39;p&#39;</span><span class="p">,</span><span class="n">text</span><span class="o">=</span><span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\\</span><span class="s2">d</span><span class="si">{4}</span><span class="s2">-</span><span class="se">\\</span><span class="s2">d</span><span class="si">{2}</span><span class="s2">-</span><span class="se">\\</span><span class="s2">d</span><span class="si">{2}</span><span class="s2">&quot;</span><span class="p">))</span><span class="o">.</span><span class="n">text</span>
+</pre></div>
 <p>其中<code>r.encoding = 'utf-8'</code>是为了防止出现中文乱码的问题</p>
 <h2>邮件发送</h2>
 <p>代码实现：</p>
+<div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">smtplib</span>
+<span class="kn">from</span> <span class="nn">email.mime.text</span> <span class="kn">import</span> <span class="n">MIMEText</span>
+<span class="kn">from</span> <span class="nn">email.header</span> <span class="kn">import</span> <span class="n">Header</span>
 
-<pre><code>import smtplib
-from email.mime.text import MIMEText
-from email.header import Header
+<span class="k">def</span> <span class="nf">sent_email</span><span class="p">(</span><span class="n">mail_title</span><span class="p">,</span><span class="n">mail_body</span><span class="p">):</span>
+    <span class="n">sender</span> <span class="o">=</span> <span class="s1">&#39;**********&#39;</span>
+    <span class="n">receiver</span> <span class="o">=</span> <span class="s1">&#39;*********&#39;</span>
+    <span class="n">smtpServer</span> <span class="o">=</span> <span class="s1">&#39;smtp.126.com&#39;</span>
+    <span class="n">username</span> <span class="o">=</span> <span class="s1">&#39;*********&#39;</span>
+    <span class="n">password</span> <span class="o">=</span> <span class="s1">&#39;*********&#39;</span>
+    <span class="n">mail_title</span> <span class="o">=</span> <span class="n">mail_title</span>
+    <span class="n">mail_body</span> <span class="o">=</span> <span class="n">mail_body</span>
 
-def sent_email(mail_title,mail_body):
-    sender = '**********'
-    receiver = '*********'
-    smtpServer = 'smtp.126.com'
-    username = '*********'
-    password = '*********'
-    mail_title = mail_title
-    mail_body = mail_body
+    <span class="n">message</span> <span class="o">=</span> <span class="n">MIMEText</span><span class="p">(</span><span class="n">mail_body</span><span class="p">,</span> <span class="s1">&#39;plain&#39;</span><span class="p">,</span> <span class="s1">&#39;utf-8&#39;</span><span class="p">)</span>
+    <span class="n">message</span><span class="p">[</span><span class="s2">&quot;Accept-Language&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;zh-CN&quot;</span>
+    <span class="n">message</span><span class="p">[</span><span class="s2">&quot;Accept-Charset&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;ISO-8859-1,utf-8&quot;</span>
+    <span class="n">message</span><span class="p">[</span><span class="s1">&#39;From&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">sender</span>
+    <span class="n">message</span><span class="p">[</span><span class="s1">&#39;To&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">receiver</span>
+    <span class="n">message</span><span class="p">[</span><span class="s1">&#39;Subject&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">Header</span><span class="p">(</span><span class="n">mail_title</span><span class="p">,</span> <span class="s1">&#39;utf-8&#39;</span><span class="p">)</span>
 
-    message = MIMEText(mail_body, 'plain', 'utf-8')
-    message["Accept-Language"] = "zh-CN"
-    message["Accept-Charset"] = "ISO-8859-1,utf-8"
-    message['From'] = sender
-    message['To'] = receiver
-    message['Subject'] = Header(mail_title, 'utf-8')
-
-    try:
-        smtp = smtplib.SMTP()
-        smtp.connect(smtpServer)
-        smtp.login(username, password)
-        smtp.sendmail(sender, receiver, message.as_string())
-        print('邮件发送成功')
-        smtp.quit()
-    except smtplib.SMTPException:
-        print("邮件发送失败！！！")</code></pre>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">smtp</span> <span class="o">=</span> <span class="n">smtplib</span><span class="o">.</span><span class="n">SMTP</span><span class="p">()</span>
+        <span class="n">smtp</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="n">smtpServer</span><span class="p">)</span>
+        <span class="n">smtp</span><span class="o">.</span><span class="n">login</span><span class="p">(</span><span class="n">username</span><span class="p">,</span> <span class="n">password</span><span class="p">)</span>
+        <span class="n">smtp</span><span class="o">.</span><span class="n">sendmail</span><span class="p">(</span><span class="n">sender</span><span class="p">,</span> <span class="n">receiver</span><span class="p">,</span> <span class="n">message</span><span class="o">.</span><span class="n">as_string</span><span class="p">())</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;邮件发送成功&#39;</span><span class="p">)</span>
+        <span class="n">smtp</span><span class="o">.</span><span class="n">quit</span><span class="p">()</span>
+    <span class="k">except</span> <span class="n">smtplib</span><span class="o">.</span><span class="n">SMTPException</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;邮件发送失败！！！&quot;</span><span class="p">)</span>
+</pre></div>
 <p>其中，<code>username</code>是你的邮箱账号，<code>password</code>是你的<strong><em>SMTP授权码</em></strong></p>
 <h2>定时执行</h2>
 <p>利用腾讯云云函数，轻松偷懒，具体配置如下：
@@ -153,77 +153,77 @@ def sent_email(mail_title,mail_body):
 <p>关于定时触发器的设置，我的思路是：
 学校一般在11：00-2：00这个时间段发通知，2：30的触发器保证了时效性，23：55的是防止遗漏</p>
 <h2>全部代码实现：</h2>
+<div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">bs4</span> <span class="kn">import</span> <span class="n">BeautifulSoup</span>
+<span class="kn">import</span> <span class="nn">requests</span>
+<span class="kn">import</span> <span class="nn">re</span>
+<span class="kn">import</span> <span class="nn">time</span>
+<span class="kn">import</span> <span class="nn">smtplib</span>
+<span class="kn">from</span> <span class="nn">email.mime.text</span> <span class="kn">import</span> <span class="n">MIMEText</span>
+<span class="kn">from</span> <span class="nn">email.header</span> <span class="kn">import</span> <span class="n">Header</span>
 
-<pre><code>from bs4 import BeautifulSoup
-import requests
-import re
-import time
-import smtplib
-from email.mime.text import MIMEText
-from email.header import Header
+<span class="k">def</span> <span class="nf">get_url</span><span class="p">():</span>
+    <span class="n">url</span> <span class="o">=</span> <span class="s1">&#39;http://jwc.njit.edu.cn/&#39;</span>
+    <span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
+    <span class="n">soup</span> <span class="o">=</span> <span class="n">BeautifulSoup</span><span class="p">(</span><span class="n">r</span><span class="o">.</span><span class="n">text</span><span class="p">,</span> <span class="s1">&#39;html.parser&#39;</span><span class="p">)</span>
+    <span class="n">links</span> <span class="o">=</span> <span class="n">soup</span><span class="o">.</span><span class="n">find_all</span><span class="p">(</span><span class="n">href</span><span class="o">=</span><span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="s2">&quot;content.jsp&quot;</span><span class="p">),</span><span class="n">target</span><span class="o">=</span><span class="s2">&quot;_blank&quot;</span><span class="p">,</span><span class="n">limit</span><span class="o">=</span><span class="mi">13</span><span class="p">)</span>
+    <span class="n">main_url</span> <span class="o">=</span> <span class="s1">&#39;http://jwc.njit.edu.cn/&#39;</span>
+    <span class="n">url_lists</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">link</span> <span class="ow">in</span> <span class="n">links</span><span class="p">:</span>
+        <span class="n">a</span> <span class="o">=</span> <span class="n">link</span><span class="p">[</span><span class="s1">&#39;href&#39;</span><span class="p">]</span>
+        <span class="n">url_lists</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">main_url</span><span class="o">+</span><span class="n">a</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">url_lists</span>
 
-def get_url():
-    url = 'http://jwc.njit.edu.cn/'
-    r = requests.get(url)
-    soup = BeautifulSoup(r.text, 'html.parser')
-    links = soup.find_all(href=re.compile("content.jsp"),target="_blank",limit=13)
-    main_url = 'http://jwc.njit.edu.cn/'
-    url_lists = []
-    for link in links:
-        a = link['href']
-        url_lists.append(main_url+a)
-    return url_lists
+<span class="k">def</span> <span class="nf">get_content</span><span class="p">():</span>
+    <span class="n">title_list</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">url</span> <span class="ow">in</span> <span class="n">get_url</span><span class="p">():</span>
+        <span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span><span class="o">=</span><span class="n">url</span><span class="p">)</span>
+        <span class="n">r</span><span class="o">.</span><span class="n">encoding</span> <span class="o">=</span> <span class="s1">&#39;utf-8&#39;</span>
+        <span class="n">soup</span> <span class="o">=</span> <span class="n">BeautifulSoup</span><span class="p">(</span><span class="n">r</span><span class="o">.</span><span class="n">text</span><span class="p">,</span> <span class="s1">&#39;html.parser&#39;</span><span class="p">)</span>
+        <span class="n">titles</span> <span class="o">=</span> <span class="n">soup</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s1">&#39;h2&#39;</span><span class="p">,</span> <span class="n">class_</span><span class="o">=</span><span class="s2">&quot;title&quot;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">titles</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">continue</span>
+        <span class="n">title</span> <span class="o">=</span> <span class="n">titles</span><span class="o">.</span><span class="n">get_text</span><span class="p">()</span>
+        <span class="n">pub_data_text</span> <span class="o">=</span> <span class="n">soup</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s1">&#39;p&#39;</span><span class="p">,</span><span class="n">text</span><span class="o">=</span><span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\\</span><span class="s2">d</span><span class="si">{4}</span><span class="s2">-</span><span class="se">\\</span><span class="s2">d</span><span class="si">{2}</span><span class="s2">-</span><span class="se">\\</span><span class="s2">d</span><span class="si">{2}</span><span class="s2">&quot;</span><span class="p">))</span><span class="o">.</span><span class="n">text</span>
+        <span class="n">pub_data</span><span class="o">=</span><span class="n">pub_data_text</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;时间:&#39;</span><span class="p">,</span><span class="s1">&#39;&#39;</span><span class="p">)</span>
+        <span class="n">current_time</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s1">&#39;%Y-%m-</span><span class="si">%d</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">time</span><span class="o">.</span><span class="n">localtime</span><span class="p">())</span>
+        <span class="k">if</span> <span class="n">pub_data</span> <span class="o">==</span> <span class="n">current_time</span><span class="p">:</span>
+            <span class="n">title_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">pub_data</span> <span class="o">+</span> <span class="s2">&quot; ； 今日通知：&quot;</span> <span class="o">+</span> <span class="n">title</span> <span class="o">+</span> <span class="s2">&quot;；&quot;</span> <span class="o">+</span> <span class="s2">&quot;详情点击： &quot;</span> <span class="o">+</span> <span class="n">url</span><span class="p">)</span>
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">title_list</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="n">sent_email</span><span class="p">(</span><span class="n">mail_title</span><span class="o">=</span><span class="s1">&#39;今日没有通知&#39;</span><span class="p">,</span><span class="n">mail_body</span><span class="o">=</span><span class="s1">&#39;今天没有通知&#39;</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">for</span> <span class="n">title</span> <span class="ow">in</span> <span class="n">title_list</span><span class="p">:</span>
+            <span class="n">sent_email</span><span class="p">(</span><span class="n">mail_title</span><span class="o">=</span><span class="s1">&#39;今日通知&#39;</span><span class="p">,</span><span class="n">mail_body</span><span class="o">=</span><span class="n">title</span><span class="p">)</span>
+    <span class="n">title_list</span><span class="o">.</span><span class="n">clear</span><span class="p">()</span>
 
-def get_content():
-    title_list = []
-    for url in get_url():
-        r = requests.get(url=url)
-        r.encoding = 'utf-8'
-        soup = BeautifulSoup(r.text, 'html.parser')
-        titles = soup.find('h2', class_="title")
-        if titles is None:
-            continue
-        title = titles.get_text()
-        pub_data_text = soup.find('p',text=re.compile("\\d{4}-\\d{2}-\\d{2}")).text
-        pub_data=pub_data_text.replace('时间:','')
-        current_time = time.strftime('%Y-%m-%d', time.localtime())
-        if pub_data == current_time:
-            title_list.append(pub_data + " ； 今日通知：" + title + "；" + "详情点击： " + url)
-    if len(title_list) == 0:
-        sent_email(mail_title='今日没有通知',mail_body='今天没有通知')
-    else:
-        for title in title_list:
-            sent_email(mail_title='今日通知',mail_body=title)
-    title_list.clear()
+<span class="k">def</span> <span class="nf">sent_email</span><span class="p">(</span><span class="n">mail_title</span><span class="p">,</span><span class="n">mail_body</span><span class="p">):</span>
+    <span class="n">sender</span> <span class="o">=</span> <span class="s1">&#39;**********&#39;</span>
+    <span class="n">receiver</span> <span class="o">=</span> <span class="s1">&#39;*********&#39;</span>
+    <span class="n">smtpServer</span> <span class="o">=</span> <span class="s1">&#39;smtp.126.com&#39;</span>
+    <span class="n">username</span> <span class="o">=</span> <span class="s1">&#39;*********&#39;</span>
+    <span class="n">password</span> <span class="o">=</span> <span class="s1">&#39;*********&#39;</span>
+    <span class="n">mail_title</span> <span class="o">=</span> <span class="n">mail_title</span>
+    <span class="n">mail_body</span> <span class="o">=</span> <span class="n">mail_body</span>
 
-def sent_email(mail_title,mail_body):
-    sender = '**********'
-    receiver = '*********'
-    smtpServer = 'smtp.126.com'
-    username = '*********'
-    password = '*********'
-    mail_title = mail_title
-    mail_body = mail_body
+    <span class="n">message</span> <span class="o">=</span> <span class="n">MIMEText</span><span class="p">(</span><span class="n">mail_body</span><span class="p">,</span> <span class="s1">&#39;plain&#39;</span><span class="p">,</span> <span class="s1">&#39;utf-8&#39;</span><span class="p">)</span>
+    <span class="n">message</span><span class="p">[</span><span class="s2">&quot;Accept-Language&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;zh-CN&quot;</span>
+    <span class="n">message</span><span class="p">[</span><span class="s2">&quot;Accept-Charset&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;ISO-8859-1,utf-8&quot;</span>
+    <span class="n">message</span><span class="p">[</span><span class="s1">&#39;From&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">sender</span>
+    <span class="n">message</span><span class="p">[</span><span class="s1">&#39;To&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">receiver</span>
+    <span class="n">message</span><span class="p">[</span><span class="s1">&#39;Subject&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">Header</span><span class="p">(</span><span class="n">mail_title</span><span class="p">,</span> <span class="s1">&#39;utf-8&#39;</span><span class="p">)</span>
 
-    message = MIMEText(mail_body, 'plain', 'utf-8')
-    message["Accept-Language"] = "zh-CN"
-    message["Accept-Charset"] = "ISO-8859-1,utf-8"
-    message['From'] = sender
-    message['To'] = receiver
-    message['Subject'] = Header(mail_title, 'utf-8')
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">smtp</span> <span class="o">=</span> <span class="n">smtplib</span><span class="o">.</span><span class="n">SMTP</span><span class="p">()</span>
+        <span class="n">smtp</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="n">smtpServer</span><span class="p">)</span>
+        <span class="n">smtp</span><span class="o">.</span><span class="n">login</span><span class="p">(</span><span class="n">username</span><span class="p">,</span> <span class="n">password</span><span class="p">)</span>
+        <span class="n">smtp</span><span class="o">.</span><span class="n">sendmail</span><span class="p">(</span><span class="n">sender</span><span class="p">,</span> <span class="n">receiver</span><span class="p">,</span> <span class="n">message</span><span class="o">.</span><span class="n">as_string</span><span class="p">())</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;邮件发送成功&#39;</span><span class="p">)</span>
+        <span class="n">smtp</span><span class="o">.</span><span class="n">quit</span><span class="p">()</span>
+    <span class="k">except</span> <span class="n">smtplib</span><span class="o">.</span><span class="n">SMTPException</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;邮件发送失败！！！&quot;</span><span class="p">)</span>
 
-    try:
-        smtp = smtplib.SMTP()
-        smtp.connect(smtpServer)
-        smtp.login(username, password)
-        smtp.sendmail(sender, receiver, message.as_string())
-        print('邮件发送成功')
-        smtp.quit()
-    except smtplib.SMTPException:
-        print("邮件发送失败！！！")
-
-def main(self1,self2):
-    get_content()</code></pre>
+<span class="k">def</span> <span class="nf">main</span><span class="p">(</span><span class="n">self1</span><span class="p">,</span><span class="n">self2</span><span class="p">):</span>
+    <span class="n">get_content</span><span class="p">()</span>
+</pre></div>
 <p><a href="https://github.com/zhangshanbeng/NJITjww">项目地址</a>←戳我</p>
 
             </div>
