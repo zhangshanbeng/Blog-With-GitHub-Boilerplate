@@ -68,13 +68,7 @@ social_links = [
         "name": "Weibo",
         "url": "https://weibo.com/234277266/",
         "icon": "gi gi-weibo"
-    },
-    {
-        "name": "又拍云",
-        "url": "https://www.upyun.com/?utm_source=lianmeng&utm_medium=referral",
-        "icon": "./static/又拍云_logo8.svg"
     }
-
 ]
 
 head_addon = r'''
