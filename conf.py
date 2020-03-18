@@ -76,6 +76,6 @@ head_addon = r'''
 <link rel="dns-prefetch" href="//cdn.jsdelivr.net" />
 '''
 
-footer_addon = '<a no-style href="http://www.beian.miit.gov.cn/" target="_blank">苏ICP备19071006号</a>|<a no-style href="https://www.upyun.com/?utm_source=lianmeng&utm_medium=referral" target="_blank"><embed src="./static/logo8.svg" style="display:block;width:330px;height:240px" /></a>'
+footer_addon = '<a no-style href="http://www.beian.miit.gov.cn/" target="_blank">苏ICP备19071006号</a>|<a no-style href="https://www.upyun.com/?utm_source=lianmeng&utm_medium=referral" target="_blank"><img alt="logo8.svg" src="https://pic.stackoverflow.wiki/uploadImages/180/119/70/131/2020/03/18/11/24/069fd85e-486b-4f08-b91d-8b8e687eca84.svg"></a>'
 
 body_addon = ''
