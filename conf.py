@@ -70,9 +70,9 @@ social_links = [
         "icon": "gi gi-weibo"
     },
     {
-        "name": " ",
+        "name": "又拍云",
         "url": "https://www.upyun.com/?utm_source=lianmeng&utm_medium=referral",
-        "icon": "${static_prefix}又拍云_logo8.svg"
+        "icon": "./static/又拍云_logo8.svg"
     }
 
 ]
