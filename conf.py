@@ -79,3 +79,10 @@ head_addon = r'''
 footer_addon = '<a no-style href="http://www.beian.miit.gov.cn/" target="_blank">苏ICP备19071006号</a>|<a no-style href="https://www.upyun.com/?utm_source=lianmeng&utm_medium=referral" target="_blank">又拍云</a>'
 
 body_addon = ''
+
+valine = {
+    "enable": True,
+    "el": '#vcomments',
+    "appId": "tRknQHrs7qCKeKa4Yf58WWgD-gzGzoHsz",
+    "appKey": "lGLjQ3Nm41o9Hfl45c5b6SOi",
+}
