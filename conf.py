@@ -38,6 +38,11 @@ external_links = [
         "name": "三無計劃",
         "url": "https://www.imalan.cn",
         "brief": "熊猫小A的主页。"
+    },
+    {
+        "name": "Licsber's site",
+        "url": "https://licsber.site/",
+        "brief": "Licsber的主页。"
     }
 ]
 nav = [
