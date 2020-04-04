@@ -38,11 +38,6 @@ external_links = [
         "name": "三無計劃",
         "url": "https://www.imalan.cn",
         "brief": "熊猫小A的主页。"
-    },
-    {
-        "name": "Licsber's site",
-        "url": "https://licsber.site/",
-        "brief": "Licsber的主页。"
     }
 ]
 nav = [
@@ -79,6 +74,7 @@ social_links = [
 head_addon = r'''
 <meta http-equiv="x-dns-prefetch-control" content="on">
 <link rel="dns-prefetch" href="//cdn.jsdelivr.net" />
+html { filter:progidXImageTransform.Microsoft.BasicImage(grayscale=1); } 
 '''
 
 footer_addon = '<a no-style href="http://www.beian.miit.gov.cn/" target="_blank">苏ICP备19071006号</a>|<a no-style href="https://www.upyun.com/?utm_source=lianmeng&utm_medium=referral" target="_blank">又拍云</a>'
