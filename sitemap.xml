@@ -12,6 +12,13 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 </url>
 
 <url>
+    <loc>/archives/javacourse/</loc>
+    <lastmod>2020-04-21</lastmod>
+    <changefreq>always</changefreq>
+    <priority>0.5</priority>
+</url>
+
+<url>
     <loc>/archives/njitjww/</loc>
     <lastmod>2020-03-16</lastmod>
     <changefreq>always</changefreq>
@@ -28,13 +35,6 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 <url>
     <loc>/archives/typography/</loc>
     <lastmod>2019-12-18</lastmod>
-    <changefreq>always</changefreq>
-    <priority>0.5</priority>
-</url>
-
-<url>
-    <loc>/archives/javacourse/</loc>
-    <lastmod>2019-04-21</lastmod>
     <changefreq>always</changefreq>
     <priority>0.5</priority>
 </url>
