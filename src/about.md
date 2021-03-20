@@ -17,4 +17,4 @@ tags:
 
 ## Contact
 
-Email: admin#zhangshanbeng.com (replace # with @)
+Email: zhangshanbeng#gmail.com (replace # with @)
