@@ -14,8 +14,7 @@ excerpt: 计算机组成实验安装需要，记录安装过程你，方便以�
 [notice]由于2015.4版本不支持4K分辨率，只能转向新版本。[/notice]
 
 ##软件下载
-[下载地址](https://china.xilinx.com/support/download/index.html/content/xilinx/zh/downloadNav/vivado-design-tools/2020-2.html)
-进入下载地址后，下拉可以看见有三个下载地址
+进入[下载地址](https://china.xilinx.com/support/download/index.html/content/xilinx/zh/downloadNav/vivado-design-tools/2020-2.html)后，下拉可以看见有三个下载地址
 ![Download_Page](./images/Vivado20/0.jpg)
 第一个 Xilinx Unified Installer 2020.2: Windows Self Extracting Web Installer，也是本文所采取下载方案。文件名已经写的很清楚，Web Installer，类似于鹅厂大型游戏的下载器
 
