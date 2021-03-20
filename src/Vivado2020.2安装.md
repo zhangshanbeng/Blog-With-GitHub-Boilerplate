@@ -18,8 +18,11 @@ excerpt: 计算机组成实验安装需要，记录安装过程你，方便以�
 进入下载地址后，下拉可以看见有三个下载地址
 ![Download_Page](./images/Vivado20/0.jpg)
 第一个 Xilinx Unified Installer 2020.2: Windows Self Extracting Web Installer，也是本文所采取下载方案。文件名已经写的很清楚，Web Installer，类似于鹅厂大型游戏的下载器
+
 第三个 Vivado HLx 2020.2: All OS installer Single-File Download，单文件下载到本地后再安装
+
 两者其实都可以，但是Single-File实在太大，下载时易受网络影响，故选择第一种方案，即下载的文件为`Xilinx_Unified_2020.2_1118_1232_Win64.exe`
+
 注意：在进行下载操作之前一定要注册好Xilinx的账号！
 
 ##软件安装
