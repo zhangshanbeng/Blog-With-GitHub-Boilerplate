@@ -24,7 +24,7 @@ site_logo = "${static_prefix}logo.png"
 site_build_date = "2020-01-11T11:11+08:00"
 author = "张山崩"
 email = "zhangshanbeng@gmail.com"
-author_homepage = "https://www.zhangshanbeng.com/"
+author_homepage = "https://zhangshanbeng.cn/"
 description = "光与影的交织 黑与白的渗透"
 key_words = ['张山崩', 'zhangshanbeng', 'blog']
 language = 'zh-CN'
@@ -36,7 +36,7 @@ external_links = [
     },
     {
         "name": "三無計劃",
-        "url": "https://www.imalan.cn",
+        "url": "https://imalan.cn",
         "brief": "熊猫小A的主页。"
     }
 ]
