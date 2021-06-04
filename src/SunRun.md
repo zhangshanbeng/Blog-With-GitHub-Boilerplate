@@ -15,7 +15,7 @@ excerpt: 半自动SunRun，Flask+MongoDB实现简单的IMEI管理web。
 [notice]昨天晚上心血来潮，耐不住寂寞，写了这套IMEI自助管理。[/notice]
 
 ##使用说明
-目前你所看见的是[半自动SunRun](http://sunrun.zhangshanbeng.cn/)的初始版本(http://sunrun.zhangshanbeng.cn/)，界面不堪入目。但是，既然这个项目能勉强跑通，那就勉强写一个说明。
+目前你所看见的是[半自动SunRun](http://sunrun.zhangshanbeng.cn/)的初始版本，界面不堪入目。但是，既然这个项目能勉强跑通，那就勉强写一个说明。
 
 项目主页分为两个部分：
 1. 提交IMEI
@@ -54,11 +54,11 @@ excerpt: 半自动SunRun，Flask+MongoDB实现简单的IMEI管理web。
 
 ##做这个项目遇到了哪些困难
 
-+ 网页的编写
+* 网页的编写
 
 我对前端知识的了解局限于爬虫和油猴脚本所需的知识，可以说是极度匮乏，不然也写不出这么烂的网页。
 
-+ 连接数据库
+* 连接数据库
 
 我对MongoDB的了解仅限于数据存储的实验四，只知道如何搭建+简单的增删改查命令。这是我第一次使用Python连接MongoDB，一直在尝试，一直在摔跤。
 
@@ -66,3 +66,5 @@ excerpt: 半自动SunRun，Flask+MongoDB实现简单的IMEI管理web。
 
 ##总结
 这个项目仅仅是一个初代演示版本，后续将会丰富功能，完善逻辑，期待早日与你相会！
+
+本项目地址:sunrun.zhangshanbeng.cn
