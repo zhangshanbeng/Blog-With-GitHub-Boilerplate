@@ -7,8 +7,6 @@ status: publish
 author: Felix
 categories: 
   - Python
-  - Flask
-  - MongoDB
 tags:
   - Python
   - SunRun
