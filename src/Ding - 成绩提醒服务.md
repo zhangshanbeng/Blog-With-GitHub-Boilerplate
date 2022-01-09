@@ -12,11 +12,10 @@ tags:
   - Python
 excerpt: 一个能帮助你消除成绩焦虑的服务
 ---
-# Ding - 成绩提醒服务
 
 当有新成绩发布时，本服务将会发送一封邮件给你（延迟在10min左右）
 
-本服务地址：http://jwjxnew.zhangshanbeng.cn/（复制到浏览器中打开）
+本服务地址：http://jwjxnew.zhangshanbeng.cn/ （复制到浏览器中打开）
 
 ### 1. 使用说明
 
