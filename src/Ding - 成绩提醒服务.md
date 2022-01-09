@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Ding - 成绩提醒服务
-slug: the first gift of 2022
+slug: ding
 date: 2022-01-9 12:00
 status: publish
 author: 张山崩
