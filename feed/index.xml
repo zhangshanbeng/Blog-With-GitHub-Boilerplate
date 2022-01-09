@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>Felix's site</title><link>/</link><description>光与影的交织 黑与白的渗透</description><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><image><url>https://cdn.jsdelivr.net/gh/zhangshanbeng/site-Blog@gh-pages/logo.png</url><title>Felix's site</title><link>/</link></image><language>zh-CN</language><lastBuildDate>Sun, 09 Jan 2022 03:08:48 +0806</lastBuildDate><pubDate>Sun, 09 Jan 2022 03:08:48 +0806</pubDate><item><title>Hello World!</title><link>/archives/typography/</link><description>&lt;div class="notice"&gt;这是一篇示例文章，在这里你可以看到常用页面元素的显示效果，同时也是 Markdown 语法的参考文章。保留或者删除本文，开始自己的创作吧！&lt;/div&gt;&lt;h2&gt;L2 Heading&lt;/h2&gt;
+<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>Felix's site</title><link>/</link><description>光与影的交织 黑与白的渗透</description><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><image><url>https://cdn.jsdelivr.net/gh/zhangshanbeng/site-Blog@gh-pages/logo.png</url><title>Felix's site</title><link>/</link></image><language>zh-CN</language><lastBuildDate>Sun, 09 Jan 2022 03:09:11 +0806</lastBuildDate><pubDate>Sun, 09 Jan 2022 03:09:11 +0806</pubDate><item><title>Hello World!</title><link>/archives/typography/</link><description>&lt;div class="notice"&gt;这是一篇示例文章，在这里你可以看到常用页面元素的显示效果，同时也是 Markdown 语法的参考文章。保留或者删除本文，开始自己的创作吧！&lt;/div&gt;&lt;h2&gt;L2 Heading&lt;/h2&gt;
 &lt;h3&gt;L3 Heading&lt;/h3&gt;
 &lt;h4&gt;L4 Heading&lt;/h4&gt;
 &lt;h5&gt;L5 Heading&lt;/h5&gt;
@@ -225,7 +225,39 @@
     &lt;span class="n"&gt;get_content&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;&lt;a href="https://github.com/zhangshanbeng/NJITjww"&gt;项目地址&lt;/a&gt;←戳我&lt;/p&gt;
-</description><author>zhangshanbeng@gmail.com (张山崩)</author><guid isPermaLink="true">/archives/njitjww/</guid><pubDate>Mon, 16 Mar 2020 20:30:00 +0806</pubDate></item><item><title>Vivado2020.2安装</title><link>/archives/vivado20/</link><description>&lt;div class="notice"&gt;由于2015.4版本不支持4K分辨率，只能转向新版本。&lt;/div&gt;&lt;h2&gt;软件下载&lt;/h2&gt;
+</description><author>zhangshanbeng@gmail.com (张山崩)</author><guid isPermaLink="true">/archives/njitjww/</guid><pubDate>Mon, 16 Mar 2020 20:30:00 +0806</pubDate></item><item><title>Ding - 成绩提醒服务</title><link>/archives/the first gift of 2022/</link><description>&lt;h1&gt;Ding - 成绩提醒服务&lt;/h1&gt;
+&lt;p&gt;当有新成绩发布时，本服务将会发送一封邮件给你（延迟在10min左右）&lt;/p&gt;
+&lt;p&gt;本服务地址：&lt;a href="http://jwjxnew.zhangshanbeng.cn/（复制到浏览器中打开）"&gt;http://jwjxnew.zhangshanbeng.cn/（复制到浏览器中打开）&lt;/a&gt;&lt;/p&gt;
+&lt;h3&gt;1. 使用说明&lt;/h3&gt;
+&lt;p&gt;进入&lt;a href="http://jwjxnew.zhangshanbeng.cn/"&gt;Ding - 成绩提醒服务&lt;/a&gt;后，点击&lt;a href="http://jwjxnew.zhangshanbeng.cn/register/"&gt;注册&lt;/a&gt;按钮，进入注册界面，依次输入邮箱、学号、信息门户密码和邀请码，点击注册按钮即可&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;注意：请确保你输入的信息是正确的，特别是学号和信息门户密码！&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;如果记不清信息门户密码的，请务必去&lt;a href="https://authserver.casb4.njit.edu.cn:4443/authserver/login?service=http%3A%2F%2Fehall.njit.edu.cn%2Flogin%3Fservice%3Dhttps%3A%2F%2Fehall.casb4.njit.edu.cn%3A4443%2Fnew%2Findex.html"&gt;-&amp;gt;统一身份认证&amp;lt;-&lt;/a&gt;试一下你的密码&lt;/p&gt;
+&lt;p&gt;&lt;img src=".\images\ding.jpg" alt="pic1" style="zoom:25%;" /&gt;&lt;/p&gt;
+&lt;p&gt;当出现”注册成功“字样时，说明已经注册成功，在接下来的10分钟内，系统将会进行第一次爬虫，你可能会收到一封初始化提醒邮件&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;注意：请确保&lt;a href=""&gt;&lt;code&gt;zhangshanbeng@126.com&lt;/code&gt;&lt;/a&gt;在白名单中！&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;【可选】在未来的十分钟内，你可以返回首页，进入登录界面，依次输入学号和密码，即可登录详情页，详情页中你可以查看你的课程与成绩&lt;/p&gt;
+&lt;p&gt;如果详情页中没有出现成绩表格，可能有以下三种原因：&lt;/p&gt;
+&lt;p&gt;① 注册至登录查看详情页的间隔小于10分钟&lt;/p&gt;
+&lt;p&gt;② 你可能真的还没出成绩&lt;/p&gt;
+&lt;p&gt;③ 你的信息门户学号/密码错误&lt;/p&gt;
+&lt;h3&gt;2. 项目原理&lt;/h3&gt;
+&lt;p&gt;网页: Flask, MySQL&lt;/p&gt;
+&lt;p&gt;爬虫: &lt;a href="https://github.com/Licsber/licsber-pypi"&gt;Licsber&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;定时执行: Crontab&lt;/p&gt;
+&lt;p&gt;项目实现很简单，没有任何技术含量可言，还是定时执行的老套路&lt;/p&gt;
+&lt;h3&gt;3. 更多&lt;/h3&gt;
+&lt;p&gt;本系统邀请码: dclG4dX6P（有效期至2022.1.10 0点）&lt;/p&gt;
+&lt;p&gt;如果在使用中遇到问题，欢迎加入我的交流群: &lt;a href="https://jq.qq.com/?_wv=1027&amp;amp;k=Ltbrj4e1"&gt;618177277&lt;/a&gt; 与我取得联系，加群请备注学号&lt;/p&gt;
+&lt;h3&gt;4. 写在最后&lt;/h3&gt;
+&lt;p&gt;其实本项目在去年的7月5日开启了第一轮公测，用户达到了7人，运行1周有余，执行成功率在80%以上&lt;/p&gt;
+&lt;p&gt;但项目架构过于繁冗，于是在一周前，我对本项目进行了重构，大胆的采用了一些轻量级框架，提高了系统的运行效率，大大降低了部署的成本&lt;/p&gt;
+&lt;p&gt;项目中对我而言最困难的部分是网页部分，也是做的最烂的部分，今年我一定好好学习orz&lt;/p&gt;
+&lt;p&gt;最后的最后，在此特别感谢所有参与测试的同学！&lt;/p&gt;
+&lt;p&gt;Wish you a very happy new year 2022!&lt;/p&gt;
+&lt;blockquote&gt;&lt;p&gt;邀请码: dclG4dX6P&lt;/p&gt;
+&lt;p&gt;交流群: &lt;a href="https://jq.qq.com/?_wv=1027&amp;amp;k=Ltbrj4e1"&gt;618177277&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+</description><author>zhangshanbeng@gmail.com (张山崩)</author><guid isPermaLink="true">/archives/the first gift of 2022/</guid><pubDate>Sat, 09 Jan 2021 12:00:00 +0806</pubDate></item><item><title>Vivado2020.2安装</title><link>/archives/vivado20/</link><description>&lt;div class="notice"&gt;由于2015.4版本不支持4K分辨率，只能转向新版本。&lt;/div&gt;&lt;h2&gt;软件下载&lt;/h2&gt;
 &lt;p&gt;进入&lt;a href="https://china.xilinx.com/support/download/index.html/content/xilinx/zh/downloadNav/vivado-design-tools/2020-2.html"&gt;下载地址&lt;/a&gt;后，下拉可以看见有三个下载地址
 &lt;figure style="flex: 47.220467466835125" &gt;&lt;img width="1495" height="1583" src="https://cdn.jsdelivr.net/gh/zhangshanbeng/site-Blog@gh-pages/archives/assets/cb712cdb653e7cb4cf7fca442b9a3670.jpg" /&gt;&lt;figcaption&gt;Download_Page&lt;/figcaption&gt;&lt;/figure&gt;
 第一个 Xilinx Unified Installer 2020.2: Windows Self Extracting Web Installer，也是本文所采取下载方案。文件名已经写的很清楚，Web Installer，类似于鹅厂大型游戏的下载器&lt;/p&gt;

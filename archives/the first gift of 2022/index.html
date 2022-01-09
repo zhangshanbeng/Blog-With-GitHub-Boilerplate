@@ -23,19 +23,20 @@
         }
     </script>
     
-<title>分类: 计算机组成 - Felix's site</title>
+<title>Ding - 成绩提醒服务 - Felix's site</title>
 <meta name="author" content="张山崩" />
-<meta name="description" content="光与影的交织 黑与白的渗透" />
-<meta property="og:title" content="分类: 计算机组成 - Felix's site" />
-<meta property="og:description" content="光与影的交织 黑与白的渗透" />
+<meta name="description" content="一个能帮助你消除成绩焦虑的服务" />
+<meta property="og:title" content="Ding - 成绩提醒服务 - Felix's site" />
+<meta property="og:description" content="一个能帮助你消除成绩焦虑的服务" />
 <meta property="og:site_name" content="Felix's site" />
-<meta property="og:type" content="website" />
-<meta property="og:url" content="/category/计算机组成/" />
-<meta property="og:image" content="Felix's site" />
-<meta name="twitter:title" content="分类: 计算机组成 - Felix's site" />
-<meta name="twitter:description" content="光与影的交织 黑与白的渗透" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="/archives/the first gift of 2022/" />
+<meta property="og:image" content="" />
+<meta property="article:published_time" content="2021-01-09T12:00:00-00.00" />
+<meta name="twitter:title" content="Ding - 成绩提醒服务 - Felix's site" />
+<meta name="twitter:description" content="一个能帮助你消除成绩焦虑的服务" />
 <meta name="twitter:card" content="summary" />
-<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/zhangshanbeng/site-Blog@gh-pages/logo.png" />
+<meta name="twitter:image" content="" />
 
 
     
@@ -63,27 +64,88 @@
             <div class="wrapper">
                 
 <main>    
-    
+    <section class="ga-section ga-content">
+        <article class="yue">
+            <h1 class="ga-post_title">Ding - 成绩提醒服务</h1>
+            <span class="ga-post_meta ga-mono">
+                <span>张山崩</span>
+                <time>
+                    2021-01-09
+                </time>
+                
+                in <a no-style class="category" href="/category/Python/">
+                    Python
+                </a>
+                
+                
+            </span>
+            <div class="ga-content_body">
+                <h1>Ding - 成绩提醒服务</h1>
+<p>当有新成绩发布时，本服务将会发送一封邮件给你（延迟在10min左右）</p>
+<p>本服务地址：<a href="http://jwjxnew.zhangshanbeng.cn/（复制到浏览器中打开）">http://jwjxnew.zhangshanbeng.cn/（复制到浏览器中打开）</a></p>
+<h3>1. 使用说明</h3>
+<p>进入<a href="http://jwjxnew.zhangshanbeng.cn/">Ding - 成绩提醒服务</a>后，点击<a href="http://jwjxnew.zhangshanbeng.cn/register/">注册</a>按钮，进入注册界面，依次输入邮箱、学号、信息门户密码和邀请码，点击注册按钮即可</p>
+<p><strong>注意：请确保你输入的信息是正确的，特别是学号和信息门户密码！</strong></p>
+<p>如果记不清信息门户密码的，请务必去<a href="https://authserver.casb4.njit.edu.cn:4443/authserver/login?service=http%3A%2F%2Fehall.njit.edu.cn%2Flogin%3Fservice%3Dhttps%3A%2F%2Fehall.casb4.njit.edu.cn%3A4443%2Fnew%2Findex.html">-&gt;统一身份认证&lt;-</a>试一下你的密码</p>
+<p><img src=".\images\ding.jpg" alt="pic1" style="zoom:25%;" /></p>
+<p>当出现”注册成功“字样时，说明已经注册成功，在接下来的10分钟内，系统将会进行第一次爬虫，你可能会收到一封初始化提醒邮件</p>
+<p><strong>注意：请确保<a href=""><code>zhangshanbeng@126.com</code></a>在白名单中！</strong></p>
+<p>【可选】在未来的十分钟内，你可以返回首页，进入登录界面，依次输入学号和密码，即可登录详情页，详情页中你可以查看你的课程与成绩</p>
+<p>如果详情页中没有出现成绩表格，可能有以下三种原因：</p>
+<p>① 注册至登录查看详情页的间隔小于10分钟</p>
+<p>② 你可能真的还没出成绩</p>
+<p>③ 你的信息门户学号/密码错误</p>
+<h3>2. 项目原理</h3>
+<p>网页: Flask, MySQL</p>
+<p>爬虫: <a href="https://github.com/Licsber/licsber-pypi">Licsber</a></p>
+<p>定时执行: Crontab</p>
+<p>项目实现很简单，没有任何技术含量可言，还是定时执行的老套路</p>
+<h3>3. 更多</h3>
+<p>本系统邀请码: dclG4dX6P（有效期至2022.1.10 0点）</p>
+<p>如果在使用中遇到问题，欢迎加入我的交流群: <a href="https://jq.qq.com/?_wv=1027&amp;k=Ltbrj4e1">618177277</a> 与我取得联系，加群请备注学号</p>
+<h3>4. 写在最后</h3>
+<p>其实本项目在去年的7月5日开启了第一轮公测，用户达到了7人，运行1周有余，执行成功率在80%以上</p>
+<p>但项目架构过于繁冗，于是在一周前，我对本项目进行了重构，大胆的采用了一些轻量级框架，提高了系统的运行效率，大大降低了部署的成本</p>
+<p>项目中对我而言最困难的部分是网页部分，也是做的最烂的部分，今年我一定好好学习orz</p>
+<p>最后的最后，在此特别感谢所有参与测试的同学！</p>
+<p>Wish you a very happy new year 2022!</p>
+<blockquote><p>邀请码: dclG4dX6P</p>
+<p>交流群: <a href="https://jq.qq.com/?_wv=1027&amp;k=Ltbrj4e1">618177277</a></p>
+</blockquote>
 
-<section id="ga-archive_list" class="ga-section" data-title="Cate: 计算机组成">
-    <ul>
-        
-        <li>
-            <h1><a target="_self" class="ga-highlight" href="/archives/vivado20/">Vivado2020.2安装</a></h1>
-            <time class="ga-mono">
-                2021-03-20
-            </time>
-        </li>
-        
-    </ul>
+            </div>
+        </article>
+        <div id="ga-tags">
+    
+    <span class="ga-tag">
+        <a class="ga-highlight" href="/tag/Crontab/">#Crontab</a>
+    </span>
+    
+    <span class="ga-tag">
+        <a class="ga-highlight" href="/tag/Python/">#Python</a>
+    </span>
+    
+</div>
+    </section>
+
+    
+<section id="ga-content_pager">
+
+    <div class="next">
+        <a class="ga-highlight" href="/archives/vivado20/">Vivado2020.2安装</a>
+        <p class="yue">计算机组成实验安装需要，记录安装过程，方便以后回忆查漏</p>
+    </div>
+
+
+    <div class="prev">
+        <a class="ga-highlight" href="/archives/njitjww/">定时爬取教务网信息并自动发信</a>
+        <p class="yue">利用Python实现定时爬取教务网信息并自动发信</p>
+    </div>
+
 </section>
 
-<section class="ga-section ga-mono" id="ga-pager">
-    
-    <span>Page 1 of 1</span>
-    
-</section>
 
+    
 
 </main>
 
