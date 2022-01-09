@@ -25,7 +25,7 @@ excerpt: 一个能帮助你消除成绩焦虑的服务
 
 如果记不清信息门户密码的，请务必去[->统一身份认证<-](https://authserver.casb4.njit.edu.cn:4443/authserver/login?service=http%3A%2F%2Fehall.njit.edu.cn%2Flogin%3Fservice%3Dhttps%3A%2F%2Fehall.casb4.njit.edu.cn%3A4443%2Fnew%2Findex.html)试一下你的密码
 
-<img src=".\images\ding.jpg" alt="pic1" style="zoom:25%;" />
+![Register](./images/ding.jpg)
 
 当出现”注册成功“字样时，说明已经注册成功，在接下来的10分钟内，系统将会进行第一次爬虫，你可能会收到一封初始化提醒邮件
 
